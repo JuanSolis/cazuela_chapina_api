@@ -8,6 +8,7 @@ public class Venta
 {
     [Key]
     public int VentaID { get; set; }
+
     [Required]
     public DateTime Fecha { get; set; }
     [Required]

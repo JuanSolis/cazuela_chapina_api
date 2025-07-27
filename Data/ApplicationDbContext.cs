@@ -9,11 +9,11 @@ public class ApplicationDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Sucursal>().ToTable("Sucursales", t => t.ExcludeFromMigrations());
-        modelBuilder.Entity<Sucursal>().ToTable("Usuarios", t => t.ExcludeFromMigrations());
-        modelBuilder.Entity<Sucursal>().ToTable("Ventas", t => t.ExcludeFromMigrations());
-        modelBuilder.Entity<Sucursal>().ToTable("DetalleTamales", t => t.ExcludeFromMigrations());
-        modelBuilder.Entity<Sucursal>().ToTable("DetalleBebidas", t => t.ExcludeFromMigrations());
+        modelBuilder.Entity<Sucursal>().ToTable("Sucursales");
+        modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+        modelBuilder.Entity<Venta>().ToTable("Ventas");
+        modelBuilder.Entity<DetalleTamal>().ToTable("DetalleTamales");
+        modelBuilder.Entity<DetalleBebida>().ToTable("DetalleBebidas");
     }
     public DbSet<Sucursal> Sucursales { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }

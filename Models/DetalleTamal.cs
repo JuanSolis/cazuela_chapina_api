@@ -8,8 +8,7 @@ public class DetalleTamal
 {
     [Key]
     public int TamalID { get; set; }
-    [ForeignKey("VentaID")]
-    public int VentaID { get; set; }
+
     [Required]
     public string Masa { get; set; } = string.Empty;
     [Required]
@@ -18,4 +17,9 @@ public class DetalleTamal
     public string Envoltura { get; set; } = string.Empty;
     [Required]
     public string Picante { get; set; } = string.Empty;
+
+    public int VentaID { get; set; }
+    [ForeignKey("VentaID")]
+    public required Venta Venta { get; set; }
+
 }
