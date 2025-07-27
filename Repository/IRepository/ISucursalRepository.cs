@@ -5,7 +5,7 @@ namespace cazuela_chapina_core.Repository.IRepository;
 public interface ISucursalRepository
 {
     ICollection<Sucursal> ObtenerSucursales();
-    Sucursal ObtenerSucursal();
+    Sucursal? ObtenerSucursal(int id);
     bool ExisteSucursal(int id);
     bool ExisteSucursal(string nombreSucursal);
 

@@ -31,6 +31,13 @@ Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalado l
 
 - Entity Framework (EF)
   ORM para trabajar con .net y base de datos.
+
   ```bash
   dotnet tool install --global dotnet-ef
+  ```
+
+- Instalar dependencias del proyecto
+  Ejecuta el comando dotnet restore para descargar e instalar todas las dependencias NuGet definidas en el archivo .csproj
+  ```bash
+  dotnet restore
   ```

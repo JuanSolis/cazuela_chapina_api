@@ -1,3 +1,4 @@
+using cazuela_chapina_core.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
@@ -6,6 +7,10 @@ public class ApplicationDbContext : DbContext
     {
 
     }
-
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Sucursal>().ToTable("Sucursales", t => t.ExcludeFromMigrations());
+    }
     public DbSet<Sucursal> Sucursales { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
 }
