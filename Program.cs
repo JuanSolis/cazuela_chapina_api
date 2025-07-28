@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddScoped<ISucursalRepository, SucursalRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+builder.Services.AddScoped<IComboRepository, ComboRepository>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 var secretKey = builder.Configuration.GetValue<string>("ApiSettings:SecretKey");
