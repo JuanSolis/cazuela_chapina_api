@@ -15,6 +15,8 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<DetalleTamal>().ToTable("DetalleTamales");
         modelBuilder.Entity<DetalleBebida>().ToTable("DetalleBebidas");
         modelBuilder.Entity<Combo>().ToTable("Combos");
+        modelBuilder.Entity<VentaCombo>().ToTable("VentasCombos");
+
     }
     public DbSet<Sucursal> Sucursales { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
@@ -22,4 +24,5 @@ public class ApplicationDbContext : DbContext
     public DbSet<DetalleTamal> DetalleTamales { get; set; }
     public DbSet<DetalleBebida> DetalleBebidas { get; set; }
     public DbSet<Combo> Combos { get; set; }
+    public DbSet<VentaCombo> VentasCombos { get; set; }
 }

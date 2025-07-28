@@ -14,5 +14,5 @@ public interface IDashboardRepository
     ICollection<ReportePorSucursalResult> ReportePorSucural();
     ICollection<ProporcionPicanteResult> ProporcionPicantes();
     ICollection TamalPorSucursal();
-    ICollection CombosPorMes();
+    ICollection<VentasDeCombosResult> VentasDeCombos();
 }

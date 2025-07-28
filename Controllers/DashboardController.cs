@@ -85,5 +85,16 @@ namespace cazuela_chapina_core.Controllers
             return Ok(proporcionPicanteResults);
         }
 
+        [HttpGet("VentasPorCombo", Name = "VentasPorCombo")]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult VentasPorCombo()
+        {
+            var ventasPorCombo = _dashboardRepository.VentasDeCombos();
+
+            return Ok(ventasPorCombo);
+        }
+
     }
 }

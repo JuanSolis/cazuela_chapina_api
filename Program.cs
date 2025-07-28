@@ -17,6 +17,9 @@ builder.Services.AddScoped<ISucursalRepository, SucursalRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 builder.Services.AddScoped<IComboRepository, ComboRepository>();
+builder.Services.AddScoped<IVentaRepository, VentaRepository>();
+builder.Services.AddScoped<IVentaComboRepository, VentaComboRepository>();
+
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 var secretKey = builder.Configuration.GetValue<string>("ApiSettings:SecretKey");

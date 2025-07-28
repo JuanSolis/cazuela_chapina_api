@@ -3,6 +3,7 @@ using System.Collections;
 using cazuela_chapina_core.Models;
 using cazuela_chapina_core.Models.Results;
 using cazuela_chapina_core.Repository.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace cazuela_chapina_core.Repository;
 
@@ -102,9 +103,21 @@ public class DashboardRepository : IDashboardRepository
         throw new NotImplementedException();
     }
 
-    public ICollection CombosPorMes()
+    public ICollection<VentasDeCombosResult> VentasDeCombos()
     {
-        throw new NotImplementedException();
+        List<VentasDeCombosResult> ventasDeCombos = _db.VentasCombos
+            .Join(_db.Combos,
+                vc => vc.ComboID,
+                c => c.ComboID,
+                (vc, c) => new { VentaCombo = vc, Combo = c })
+            .GroupBy(x => x.Combo.Nombre)
+            .Select(g => new VentasDeCombosResult
+            {
+                Nombre = g.Key,
+                VecesVendido = g.Count(),
+                IngresoGenerado = g.Sum(x => x.VentaCombo.Precio)
+            }).ToList();
+        return ventasDeCombos;
     }
 
     public ICollection<ProporcionPicanteResult> ProporcionPicantes()
