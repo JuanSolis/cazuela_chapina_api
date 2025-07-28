@@ -25,7 +25,7 @@ public class DashboardRepository : IDashboardRepository
                  TotalVentas = g.Count(),
                  TotalIngresos = g.Sum(v => v.Precio)
              })
-             .OrderBy(r => r.FechaVenta)
+             .OrderBy(r => r.TotalVentas)
              .ToList();
 
         return resumenVentas;
@@ -42,8 +42,7 @@ public class DashboardRepository : IDashboardRepository
                     TotalVentas = g.Count(),
                     TotalIngresos = g.Sum(v => v.Precio)
                 })
-                .OrderBy(r => r.Año)
-                .ThenBy(r => r.Mes)
+                .OrderBy(r => r.TotalVentas)
                 .ToList();
         return resumenVentas;
     }
@@ -116,7 +115,7 @@ public class DashboardRepository : IDashboardRepository
                {
                    Picante = g.Key,
                    Cantidad = g.Count()
-               })
+               }).OrderBy(r => r.Cantidad)
                .ToList();
         return proporcionPicanteResults;
 
